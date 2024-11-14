@@ -259,3 +259,10 @@
 #     #yukarıdaki koşullar harici herhangibir koşulda aşağıdaki blok çalışacak
 #   else:
 #     print("Şifre 3 karakterden kısa 8 karakterden uzun olamaz.")
+
+# kelimeleri ayırıp ekrana yazdıran program
+
+# isim = input("İsminizi Giriniz : ")
+# #kelimeyi bölüp ilk indexi ekrana yazdırır
+# for i in isim.split():
+#   print(i[0])
