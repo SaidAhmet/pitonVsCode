@@ -1,13 +1,13 @@
 #sadece ilk harfleri büyük yapmak için
 # ilk_harf_buyuk = "ne mutlu".capitalize()
-# #bütün harfleri küçük yapmak için 
+# #bütün harfleri küçük yapmak için
 # hepsi_kucuk = "NE MUTLU ".lower()
-# #bütün harfleri büyük yapmak için 
-# hepsi_buyuk = "ne mutlu".upper() 
+# #bütün harfleri büyük yapmak için
+# hepsi_buyuk = "ne mutlu".upper()
 #harfleri tersi yapmak için
 # tam_tersi = "Ne MuTlU".swapcase()
-# #belirtilen karakteri metinden silmek için 
-# sil = "+++ahmet+++".strip("+") 
+# #belirtilen karakteri metinden silmek için
+# sil = "+++ahmet+++".strip("+")
 
 
 # print(ilk_harf_buyuk)
@@ -18,8 +18,8 @@
 
 #sep parametresi ',' yerine koyulacak karakteri belirtir default olarak 'boşluk' tur.
 # print("ahmet","said",sep="*")
-#end parametresi metnin sonun ne koyulacağını belirtir. 
-# print("Ad Soyad",end=":") 
+#end parametresi metnin sonun ne koyulacağını belirtir.
+# print("Ad Soyad",end=":")
 
 # ad = "ahmet"
 # soyad ="armağan"
@@ -33,7 +33,7 @@
 #KULLANICIDAN VERİ GİRİŞİ ALMAK İÇİN İNPUT() KULLANILIR
 # kullanici_ad = input("Kullanıcı Adı Giriniz : ")
 # kullanici_ps = int(input("Şifrenizi Giriniz : "))
-  
+
 # print(type(kullanici_ad))
 # print(type(kullanici_ps))
 
@@ -52,12 +52,12 @@
 # if (vize >=70):
 #     print("Final sınavından : 70 almanız yeterli.")
 # else:
-#     print(f"Final Sınavından {int(final)} notu almalısınız.")    
+#     print(f"Final Sınavından {int(final)} notu almalısınız.")
 
 #LİSTELER
 # meyve = ["elma","erik",23]
 # #listenin sonuna eklemek için kullanılıyor
-# meyve.append("muz") 
+# meyve.append("muz")
 
 # print(meyve)
 #  #listede belirtilen indexi değiştiriyoruz
@@ -65,7 +65,7 @@
 
 # print(meyve)
 # #belirtilen indexi yazdırıyoruz
-# #print(meyve[0]) 
+# #print(meyve[0])
 # # 'a:b' a yerine başlaması gereken indexi yazıyoruz a'ncı indexi ekranda gösterir, b yerine bitmesi gereken indexi b'nci index ekrana yazdırılmaz
 # #üstteki satırın özeti a'ncı indexten a dahil b'nci indexe kadar b dahil değil ekrana yazdırır
 # print(meyve[1:3])
@@ -85,7 +85,7 @@
 # son index için
 # print(teams[-1])
 
-# ÖNEMLİ NOT 
+# ÖNEMLİ NOT
 # Demetler ile listeler arasındaki fark demetlerin güncellenemeyeceği
 #demetlere en başında girilen veriler sabit değişmez
 
@@ -128,7 +128,7 @@
 # deneme7 = 4<5 or 3>4
 # print(deneme7)
 
-#KOŞULLAR 
+#KOŞULLAR
 
 # ders seçim uygulaması
 # ders1, ders2, ders3, ders4 = "Matematik", "Türkçe", "İngilizce", "Sosyal"
@@ -266,3 +266,112 @@
 # #kelimeyi bölüp ilk indexi ekrana yazdırır
 # for i in isim.split():
 #   print(i[0])
+
+
+#FONKSİYONLAR
+#temel fonksiyon örneği
+# def topla():
+#   a=int(input("İlk Sayıyı Giriniz : "))
+#   b=int(input("İkinci Sayıyı Giriniz : "))
+#   toplam=a+b
+#   print(f"İşlem Sonucu : {toplam}")
+
+# topla()
+
+#fonksiyonlarda parametre kullanımı
+
+# def kullaniciBilgileri (ad,soyad,yas,meslek):
+#   print(f"Adınız : {ad}\nSoyadınız : {soyad}\nYaşınız : {yas}\nMesleğiniz : {meslek}")
+#   print("*"*10)
+
+# ad = input("Adınızı Giriniz : ")
+# soyad = input("Soyadınızı Giriniz : ")
+# yas = input("Yaşınızı Giriniz : ")
+# meslek = input("Mesleğinizi Giriniz : ")
+
+# kullaniciBilgileri(ad,soyad,yas,meslek)
+
+# def su_hesabi (kilo):
+#   e_hesap = kilo*0.04
+#   k_hesap = kilo*0.03
+
+#   cinsiyet = input("Lütfen Cinsiyetinizi Belirtiniz ? (E/K)\n").lower()
+
+#   if cinsiyet == "e":
+#     print(f"İçmeniz gereken su miktarı {e_hesap} litredir.")
+#   elif cinsiyet == "k":
+#     print(f"İçmeniz gereken su miktarı {k_hesap} litredir.")
+#   else:
+#     print("Cinsiyeti Hatalı Girdiniz.")
+
+# kilo = int(input("Lütfen Kilonuzu Gİriniz : "))
+# su_hesabi(kilo)
+
+#return komutu
+
+# def topla(a,b):
+#   toplam = a+b
+#   return (toplam)
+
+# a = int(input("Sayı Gir : "))
+# b = int(input("Sayı Gir : "))
+
+# c = 5
+# #return komutuyla fonksiyona global de bir değer olarak gösterebiliyoruz
+# ilk = topla(a,b)
+# print(ilk+c)
+
+#fonksiyon parametrelerinde default değer
+#eğer ki default olması gereken değişkeni sona yazmazsanız syntax hatası alınır
+#onun için defaultu sona atamak gerekir ya da hepsine default atamalısınız
+# def k_info(ad,soyad="boş bırakıldı",yas=25,meslek="boş bırakıldı"):
+#   print(f"Adınız : {ad}\nSoyadınız : {soyad}\nYaşınız : {yas}\nMesleğiniz : {meslek}")
+
+# k_info("ahmet","said")
+
+# FONKSİYONUN İÇİNDE TANIMLANAN DEĞİŞKEN GLOBAL DENİLEREK TANIMLANDIĞINDA
+# HERYER DE KULLANILABİLİR
+
+#SÖZLÜKLER
+
+# menu = {"Su":"25","Latte":"90","Türk Kahvesi":"75"}
+# #sözlük içindeki değer için
+# # print(menu["Su"]) 
+# #sözlük içindeki hem keys hem de values görüntülenmesi için
+# for i,j in menu.items():
+#   print(i,j)
+
+# puan_durumu = {"Fenerbahçe":"99 Puan","Kasımpaşa":"95 Puan",
+#                 "Karagümrük":"93 Puan"}
+
+# takim = input("Takım giriniz : ").capitalize()
+
+# if takim not in puan_durumu:
+#   print("Böyle bir takım yok...")
+# else:
+#   print(takim,":",puan_durumu[takim])
+
+#yukarıdaki kod bloğunu kısası
+
+# print(takim,":",puan_durumu.get(takim,"Böyle bir takım yok..."))
+
+#sözlüğe veri ekleme puan_durumu isimli sözlüğü kullanıyorum tekrar yazmak yerine
+
+# puan_durumu.setdefault("EdirneSpor","100 Puan")
+
+# print(puan_durumu)
+
+# takim = input("Takım Adını Giriniz : ").capitalize()
+# puan = input("Puanını Giriniz : ")
+# #kullanıcı puan kelimesini yazmazsa diye
+# # puan += " Puan"
+# #veri eklenen yer
+# # puan_durumu.setdefault(takim,puan)
+# # print(puan_durumu)
+
+# #VERİ SİLME
+# puan_durumu.pop("Kasımpaşa")
+
+# for i,j in puan_durumu.items():
+#   print(i,":",j)
+#   print("-"*10)
