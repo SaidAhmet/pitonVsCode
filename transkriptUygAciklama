@@ -1,0 +1,7 @@
+bu program ile kullanıcı bulunduğu dönemi seçicek seçtiği dönemin dersleri program içinde tanımlı
+seçtiği dönemin dersleri listenilecek ve sırasıyla 
+1-ilk önce muaf olup olmadığı 
+    a.eğer muafsa dersin ortalamasını giricek
+    b.eğer muaf değilse ilk önce vize ve ardından final notları istenilecek program ortalamayı ve harf başarı notunu otomatik
+        oluşturacak ve AGNO yu hesaplıcak
+
