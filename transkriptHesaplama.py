@@ -40,17 +40,13 @@ def dersleriGoster(a):
 #     i+=1
 #     print(a)
 
-def ortHesapla(vizeNotu,finalNotu):
-    ort = (vizeNotu*0.30)+(finalNotu*0.70)
-    return ort
-
 ortalamalar = list()
-dersKoduOrtalamalar = dict(zip(birinciYariyilDersKodu,ortalamalar))
 harfNotlari = ["AA","BA","BB","CB","CC","DD","FD","FF"]
 basariKatsayilari = [4,3.5,3,2.5,2,1.5,1,0]
 alinanHarfNotu = list()
 alinanBasariKatSayisi = list()
 dersKoduVeHarfi = dict(zip(birinciYariyilDersKodu,alinanHarfNotu))
+dersKoduOrtalamalar = dict(zip(birinciYariyilDersKodu,ortalamalar))
 dersKoduVeBasariKatsayisi = dict(zip(birinciYariyilDersKodu,alinanBasariKatSayisi))
 ort = 0
 
@@ -75,8 +71,8 @@ def notGiris():
     while i<listeUzunluk:
         a = birinciYariyilDersKodu[i]
         muafMı = input(f"{a} Kodlu Dersten Muaf Mısınız ? (E/H)").lower()
+        global dersNotOrt
         if muafMı == "e":
-            global dersNotOrt
             dersNotOrt = int(input("Not ortalamanızı Giriniz : "))
             print(f"{a} Dersi Not Ortalamanız : {dersNotOrt}")
             ortalamalar.append(dersNotOrt)
@@ -87,11 +83,12 @@ def notGiris():
             ganoHesapla(a,b)
             i+=1
         elif muafMı == "h":
+            dersNotOrt = 0
             vizeNotu = int(input("Vize Notunu Giriniz : "))
             finalNotu = int(input("Final Notunu Giriniz : "))
             print(f"{a} kodlu dersinizin not ortalaması : {ortHesapla(vizeNotu,finalNotu)}")
             ortalamalar.append(ortHesapla(vizeNotu,finalNotu))
-            dersNotOrt = ort
+            dersNotOrt = ortHesapla(vizeNotu,finalNotu)
             dersKoduOrtalamalar[a] = dersNotOrt  # sözlüğü güncellemek için chatgpt böyle birşey önerdi
             harfNotuHesapla(dersNotOrt,a)
             b = alinanHarfNotu[i] 
@@ -110,19 +107,19 @@ def notGiris():
 def harfNotuHesapla(x, dersKodu):
     if 100 >= x >= 90:
         harfNotu = harfNotlari[0]
-    elif 89 >= x >= 80:
+    elif 90 > x >= 80:
         harfNotu = harfNotlari[1]
-    elif 79 >= x >= 70:
+    elif 80 > x >= 70:
         harfNotu = harfNotlari[2]
-    elif 69 >= x >= 65:
+    elif 70 > x >= 65:
         harfNotu = harfNotlari[3]
-    elif 64 >= x >= 60:
+    elif 65 > x >= 60:
         harfNotu = harfNotlari[4]
-    elif 59 >= x >= 50:
+    elif 60 > x >= 50:
         harfNotu = harfNotlari[5]
-    elif 49 >= x >= 30:
+    elif 50 > x >= 30:
         harfNotu = harfNotlari[6]
-    elif 29 >= x >= 0:
+    elif 30 > x >= 0:
         harfNotu = harfNotlari[7]
     alinanHarfNotu.append(harfNotu)
     dersKoduVeHarfi[dersKodu] = harfNotu
@@ -147,6 +144,10 @@ def ganoHesapla(dersKodu,c):
     alinanBasariKatSayisi.append(basariKatsayisi)
     dersKoduVeBasariKatsayisi[dersKodu] = basariKatsayisi
 
+def ortHesapla(vizeNotu,finalNotu):
+    ort = (vizeNotu*0.30)+(finalNotu*0.70)
+    return ort
+
 
 def ganoGoster(x):
     print("Aldığınız Derslerin Genel Ağırlık Not Ortalaması : ")
@@ -169,14 +170,15 @@ def agnoHesapla(a):
     print(f"Aldığınız dersler ve not ortalamaları aşağıdaki gibidir : ")
     toplam = 0 # toplam değişkenini burada başlatmazsak çıktı olarak en sondaki değerin iki katını verir 
     #onun  için yukarıda başlatıyorum ki döngü her yenilendiğinde o da sıfırlanmıyor
+    print(a)
     for i,j in a.items():
         print(i,":",j)
         toplam += j
     ort = (toplam)/(len(ortalamalar))
-    return ort   
-
+    return ort 
 
 #************PROGRAM AGNOHESAPLA VE GANOGOSTER FONKSİYONUNDA PATLIYOR*****************
+#*********DÜZELTME BEN PATLATTIM O BENİ PATLATAMADI**********
 #********ARKASI YARIN******
 
 
