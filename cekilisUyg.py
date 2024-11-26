@@ -1,6 +1,7 @@
 #***************ÇEKİLİŞ UYGULAMASI****************
 #amaç : bir listeye kişiler eklenicek ver ardından rastgele içinden 
 #kazananlar çekilecek
+#peki bu cekiliste bir sahibiye var mi ?
 
 import random
 import time
