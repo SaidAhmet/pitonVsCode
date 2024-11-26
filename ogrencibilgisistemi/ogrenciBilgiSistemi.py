@@ -62,7 +62,7 @@ def dersEkle():
     dersKodu = input("Ders Kodunu Giriniz : ")
     teoSaat = int(input("Teorik Saati Giriniz : "))
     uygSaat = int(input("Uygulama Saatini Giriniz : "))
-    a = dersler(dersAdi,dersKodu,teoSaat,uygSaat)
+    a = dersler(dersKodu,dersAdi,teoSaat,uygSaat)
     imlec.execute(f"INSERT INTO dersler VALUES('{a.dersKodu}','{a.dersAdi}','{a.teoSaat}','{a.uygSaat}')")
     db.commit()
 
@@ -75,10 +75,16 @@ def dersGor():
 def devamGir():
     teo = int(input("Teorik Derslerde Yapılan Devamsızlık : "))
     uyg = int(input("Uygulama Derslerinde Yapılan Devamsızlık : "))
-    
+
+def kalanDevamGor():
+    imlec.execute("SELECT * FROM kalanDevam")
+    goster = imlec.fetchall()
+    for i in goster:
+        print(i)    
 
 
 # ogrEkle()
-# ogrGor()
-dersEkle()
-dersGor()
+# # ogrGor()
+# # dersEkle()
+# # dersGor()
+# kalanDevamGor()
